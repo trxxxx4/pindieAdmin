@@ -1,7 +1,4 @@
-
-// Вместо нашего адреса вставь свой
-// Можно ещё не удалять адреса с localhost, но мы удалили для краткости
-const allowedCors = ["https://liim38group.nomorepartiesco.ru",
+/*const allowedCors = ["https://liim38group.nomorepartiesco.ru",
     'http://localhost:3000',
     'http://localhost:3001',
     'https://pindiebyliim38.nomorepartiesco.ru'
@@ -18,4 +15,27 @@ function cors(req, res, next) {
   next();
 }
 
-module.exports = cors; 
+module.exports = cors; */
+
+const allowedCors = [
+    'http://localhost:3000',
+    'http://localhost:3001',
+]
+
+
+
+function cors(req, res, next){
+    const {origin} = req.headers;
+    /*if (allowedCors.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin)
+        res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE')
+        res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization')
+      }*/
+      res.header('Access-Control-Allow-Origin', origin)
+        res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE')
+        res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization')
+      
+    next();
+}
+
+module.exports = cors;
