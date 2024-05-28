@@ -3,7 +3,8 @@
 // Можно ещё не удалять адреса с localhost, но мы удалили для краткости
 const allowedCors = ["https://liim38group.nomorepartiesco.ru",
     'http://localhost:3000',
-    'http://localhost:3001'
+    'http://localhost:3001',
+    'https://pindiebyliim38.nomorepartiesco.ru'
 ];
 
 function cors(req, res, next) {
